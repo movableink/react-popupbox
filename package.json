@@ -2,7 +2,9 @@
   "name": "@movable/react-popupbox",
   "version": "2.0.8-1",
   "description": "A simple lightbox component for react",
-  "main": "dist/react-popupbox.js",
+  "main": "dist/react-popupbox.cjs.js",
+  "module": "dist/react-popupbox.esm.js",
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Fraina/react-popupbox.git"
@@ -20,19 +22,25 @@
   },
   "homepage": "http://github.com/fraina/react-popupbox#readme",
   "scripts": {
-    "build": "./node_modules/.bin/webpack --config webpack.config.js",
-    "dist": "npm run build; cp ./src/css/react-popupbox.css ./dist/react-popupbox.css"
+    "build": "npm run clean && node build.js && tsc --emitDeclarationOnly --outDir dist",
+    "dist": "npm run build && cp ./src/css/react-popupbox.css ./dist/react-popupbox.css",
+    "clean": "rimraf dist",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
+    "@types/react": "^18.0.35",
+    "@types/react-dom": "^18.0.11",
     "deepmerge": "^1.3.2",
-    "react": "^16.3.1"
+    "eventemitter3": "^5.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "babel-core": "^6.24.0",
-    "babel-loader": "^6.4.1",
-    "babel-preset-es2015": "^6.24.0",
-    "babel-preset-react": "^6.23.0",
-    "babel-preset-stage-0": "^6.22.0",
-    "webpack": "^2.3.1"
+    "esbuild": "^0.17.16",
+    "rimraf": "^5.0.0",
+    "typescript": "^5.0.4"
+  },
+  "volta": {
+    "node": "18.16.0"
   }
 }

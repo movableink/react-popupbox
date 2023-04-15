@@ -11,8 +11,6 @@ export class Container extends Component {
     Manager.setDefault(this._defaultState)
 
     this.handleStoreChange = this.handleStoreChange.bind(this)
-    Manager.addChangeListener(this.handleStoreChange)
-
     this.closeImagebox = Manager.close.bind(Manager)
   }
 
@@ -48,6 +46,7 @@ export class Container extends Component {
   }
 
   componentDidMount() {
+    Manager.addChangeListener(this.handleStoreChange)
     document.addEventListener('keydown', this.onKeyDown.bind(this))
   }
 
@@ -57,6 +56,7 @@ export class Container extends Component {
   }
 
   handleStoreChange(params) {
+    console.log("STORE CHANGE");
     this.cleanUp()
 
     const { children, show, config } = params
