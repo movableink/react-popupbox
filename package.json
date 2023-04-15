@@ -1,6 +1,6 @@
 {
   "name": "@movable/react-popupbox",
-  "version": "2.0.8-1",
+  "version": "3.0.0",
   "description": "A simple lightbox component for react",
   "main": "dist/react-popupbox.cjs.js",
   "module": "dist/react-popupbox.esm.js",
