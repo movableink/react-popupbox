@@ -1,6 +1,6 @@
 {
   "name": "@movable/react-popupbox",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "A simple lightbox component for react",
   "main": "dist/react-popupbox.cjs.js",
   "module": "dist/react-popupbox.esm.js",
@@ -25,7 +25,7 @@
     "build": "npm run clean && node build.js && tsc --emitDeclarationOnly --outDir dist",
     "dist": "npm run build && cp ./src/css/react-popupbox.css ./dist/react-popupbox.css",
     "clean": "rimraf dist",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run dist"
   },
   "dependencies": {
     "@types/react": "^18.0.35",
